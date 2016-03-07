@@ -14,3 +14,5 @@ Ver.3   [Customize Admin](../../tree/1b29d70569a3b75e64c54017f59a59fcd0c26697)
 Ver.4   [Mapping URLs to Views](../../tree/7c54a0413afe4d2453dfafa391a5150538395334)
 
 Ver.5   [In App URLs](../../tree/139682c5ed8d7865cea562d87324ccb5d7a8d48c)
+
+Ver.6   [Template Context](../../tree/fb632dbd65b798dee54969d13416088429674646)
