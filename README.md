@@ -18,3 +18,5 @@ Ver.5   [In App URLs](../../tree/139682c5ed8d7865cea562d87324ccb5d7a8d48c)
 Ver.6   [Template Context](../../tree/fb632dbd65b798dee54969d13416088429674646)
 
 Ver.7   [Get Post Item with Query](../../tree/18c35349ebe3d5245d3087306b0910e8220c28c2)
+
+Ver.8   [URL Links & Get Absolute URL](../../tree/7461e9d1b2cdc1990609c933f6e30be49da7389c)
