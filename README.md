@@ -16,3 +16,5 @@ Ver.4   [Mapping URLs to Views](../../tree/7c54a0413afe4d2453dfafa391a5150538395
 Ver.5   [In App URLs](../../tree/139682c5ed8d7865cea562d87324ccb5d7a8d48c)
 
 Ver.6   [Template Context](../../tree/fb632dbd65b798dee54969d13416088429674646)
+
+Ver.7   [Get Post Item with Query](../../tree/18c35349ebe3d5245d3087306b0910e8220c28c2)
