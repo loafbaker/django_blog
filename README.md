@@ -26,3 +26,5 @@ Ver.9   [ModelForm & Create View](../../tree/47ffb0dc24a921cb710e0dd842e20d5017a
 Ver.10   [Instance Update View & Messages](../../tree/f504653a37208d0719de2b2191e74837a7545ab8)
 
 Ver.11   [Delete View](../../tree/33c613e2d435bdbb0e6c375c926f2bfa3484c7c8)
+
+Ver.12   [Template & Inheritance](../../tree/179e6e213c8526defa7127081f3059fa325ca4d6)
