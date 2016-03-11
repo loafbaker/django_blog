@@ -1,0 +1,23 @@
+<!--DOCTYPE HTML-->
+<html>
+  <head>
+    <title>
+      {% block head_title %}Django Blog{% endblock %}
+    </title>
+    <style type="text/css">
+      {% block style %}
+
+      {% endblock %}
+    </style>
+  </head>
+  <body>
+    {% include 'messages_display.html' %}
+
+    <div class="container">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

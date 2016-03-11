@@ -13,8 +13,6 @@ def post_create(request):
 		instance.save()
 		messages.success(request, 'Successfully Created.')
 		return HttpResponseRedirect(instance.get_absolute_url())
-	else:
-		messages.error(request, 'Fail to Create.')
 	context = {
 		'form': form,
 		'button': 'Create Post',
@@ -33,9 +31,9 @@ def post_list(request): # list items
 	queryset = Post.objects.all()
 	context = {
 		'object_list': queryset,
-		'title': 'My User List',
+		'title': 'Post List',
 	}
-	return render(request, 'index.html', context)
+	return render(request, 'post_list.html', context)
 
 def post_update(request, id=None):
 	instance = get_object_or_404(Post, id=id)

@@ -3,7 +3,7 @@ django_blog
 
 A tutorial basic blog web-app based on the framework of Django 1.9.
 
-Run successfully within Django 1.9.3 and Python 2.7.6
+Run successfully within Django 1.9.4 and Python 2.7.6
 
 Ver.1   [Install & Admin](../../tree/63967d94c2443d3665a435d4b1ad3448e8f59131)
 
@@ -24,3 +24,5 @@ Ver.8   [URL Links & Get Absolute URL](../../tree/7461e9d1b2cdc1990609c933f6e30b
 Ver.9   [ModelForm & Create View](../../tree/47ffb0dc24a921cb710e0dd842e20d5017a8d621)
 
 Ver.10   [Instance Update View & Messages](../../tree/f504653a37208d0719de2b2191e74837a7545ab8)
+
+Ver.11   [Delete View](../../tree/33c613e2d435bdbb0e6c375c926f2bfa3484c7c8)
