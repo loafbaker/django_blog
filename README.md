@@ -32,3 +32,5 @@ Ver.12   [Template & Inheritance](../../tree/179e6e213c8526defa7127081f3059fa325
 Ver.13   [Setup Static Files](../../tree/33026f355c2eb4ba6b983c45500557879dc75ea0)
 
 Ver.14   [Implement Bootstrap](../../tree/19fb3f825bc6ebcdff09bcf6be31668cf9877e3b)
+
+Ver.15   [Pagination by QuerySet](../../tree/065d89c838750121d06c2a9500826c1166db7d4a)
