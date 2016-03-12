@@ -10,6 +10,7 @@ def upload_location(instance, filename):
 
 class Post(models.Model):
 	title = models.CharField(max_length=120)
+	slug = models.SlugField(unique=True)
 	image = models.ImageField(upload_to=upload_location,
 		                      null=True, blank=True,
 		                      width_field='width_field',
@@ -27,7 +28,7 @@ class Post(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-		return reverse('posts:detail', kwargs={'id': self.id})
+		return reverse('posts:detail', kwargs={'slug': self.slug})
 
 	class Meta:
 		ordering = ['timestamp', 'updated']
