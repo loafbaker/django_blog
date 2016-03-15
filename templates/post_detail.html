@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load urlify %}
+
 {% block head_title %}
   {{ instance.title }} | {{ block.super }}
 {% endblock %}
@@ -18,7 +20,7 @@
     </a>
 
     <!-- Twitter Share Link -->
-    <a href="https://twitter.com/home?status={{ share_tweet }}%20{{ request.build_absolute_uri }}" target="_blank">
+    <a href="https://twitter.com/home?status={{ instance.content|truncatechars:108|urlify }}%20{{ request.build_absolute_uri }}" target="_blank">
       Twitter
     </a>
 
@@ -28,7 +30,7 @@
     </a>
 
     <!-- Linkedin Share Link -->
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}" target="_blank">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ instance.content|truncatewords:100|urlify }}&source={{ request.build_absolute_uri }}" target="_blank">
       Linkedin
     </a>
 

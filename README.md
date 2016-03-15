@@ -38,3 +38,5 @@ Ver.15   [Pagination by QuerySet](../../tree/065d89c838750121d06c2a9500826c1166d
 Ver.16   [File Uploads with FileField and ImageField](../../tree/65d3cb994ca1d30187697e32a611c934676ae639)
 
 Ver.17   [SlugField](../../tree/b2a11513a3d3b32580aefac3fbdfa05a02005348)
+
+Ver.18   [Social Share Links](../../tree/c5fc576d80b8fd3a9fe35c5433fbf53b0d2c25e8)
