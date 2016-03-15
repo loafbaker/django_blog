@@ -12,6 +12,31 @@
 
     {{ instance.content|linebreaks }}<br/>
 
+    <!-- Facebook Share Link -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+      Facebook
+    </a>
+
+    <!-- Twitter Share Link -->
+    <a href="https://twitter.com/home?status={{ share_tweet }}%20{{ request.build_absolute_uri }}" target="_blank">
+      Twitter
+    </a>
+
+    <!-- Google-plus Share Link -->
+    <a href="https://plus.google.com/share?url={{ request.build_absolute_uri }}" target="_blank">
+      Google+
+    </a>
+
+    <!-- Linkedin Share Link -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}" target="_blank">
+      Linkedin
+    </a>
+
+    <!-- Reddit Share Link -->
+    <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ instance.title }}" target="_blank">
+      Reddit
+    </a>
+
   </div>
 </div>
 {% endblock %}

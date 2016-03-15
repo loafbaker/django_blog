@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.utils.text import Truncator
+from urllib import quote_plus
 
 # Create your views here.
 from .models import Post
@@ -22,9 +24,17 @@ def post_create(request):
 
 def post_detail(request, slug=None): # retrive
 	instance = get_object_or_404(Post, slug=slug)
+	# Solve the KeyError for exception char u'\u2019'
+	encode_content = instance.content.encode('utf8')
+	# encode_content = instance.content.replace(u'\u2018', '\'').replace(u'\u2019', '\'')
+	share_string = quote_plus(encode_content)
+	tweet_content = Truncator(encode_content).chars(108)
+	share_tweet = quote_plus(tweet_content)
 	context = {
 		'instance': instance,
 		'title': instance.title,
+		'share_string': share_string,
+		'share_tweet': share_tweet,
 	}
 	return render(request, 'post_detail.html', context)
 
