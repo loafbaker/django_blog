@@ -42,3 +42,5 @@ Ver.17   [SlugField](../../tree/b2a11513a3d3b32580aefac3fbdfa05a02005348)
 Ver.18   [Social Share Links](../../tree/c5fc576d80b8fd3a9fe35c5433fbf53b0d2c25e8)
 
 Ver.19   [Custom Template Tag](../../tree/31f250fee17d467ccf06c649020d75baa9a715c8)
+
+Ver.20   [Basic User Permissions](../../tree/359afe0cb1475eaf3619ccaff70f9afbcbe5fbc4)
