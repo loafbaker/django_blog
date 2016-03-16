@@ -44,3 +44,5 @@ Ver.18   [Social Share Links](../../tree/c5fc576d80b8fd3a9fe35c5433fbf53b0d2c25e
 Ver.19   [Custom Template Tag](../../tree/31f250fee17d467ccf06c649020d75baa9a715c8)
 
 Ver.20   [Basic User Permissions](../../tree/359afe0cb1475eaf3619ccaff70f9afbcbe5fbc4)
+
+Ver.21   [Associate User to Post with a Foreign Key](../../tree/9738b44995eedff2fd46b4e155f4ed65622c3d26)
