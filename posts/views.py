@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
+from django.db.models import Q
 from django.utils import timezone
 
 # Create your views here.
@@ -41,6 +42,14 @@ def post_list(request): # list items
 	else:
 		queryset_list = Post.objects.active()
 	today = timezone.now()
+	query = request.GET.get('q')
+	if query:
+		queryset_list = queryset_list.filter(
+			Q(title__icontains=query) |
+			Q(content__icontains=query) |
+			Q(user__first_name=query) |
+			Q(user__last_name=query)
+			)
 	paginator = Paginator(queryset_list, 10) # Show 10 posts per page
 	page_request_token = 'page'
 	page = request.GET.get(page_request_token)

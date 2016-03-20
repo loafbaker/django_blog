@@ -48,3 +48,5 @@ Ver.20   [Basic User Permissions](../../tree/359afe0cb1475eaf3619ccaff70f9afbcbe
 Ver.21   [Associate User to Post with a Foreign Key](../../tree/9738b44995eedff2fd46b4e155f4ed65622c3d26)
 
 Ver.22   [Using Facebook Comments](../../tree/593f91ec10ae9e47c72ad47d9f4902859e568d90)
+
+Ver.23   [Item Publish Date & Handling Drafts](../../tree/6f0f9d997765a69401426065bc4f40e113ad4747)
