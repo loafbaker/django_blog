@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
+from django.utils import timezone
 
 # Create your views here.
 from .models import Post
@@ -25,6 +26,9 @@ def post_create(request):
 
 def post_detail(request, slug=None): # retrive
 	instance = get_object_or_404(Post, slug=slug)
+	if not (request.user.is_staff or request.user.is_superuser):
+		if instance.draft or instance.publish > timezone.now():
+			raise Http404
 	context = {
 		'instance': instance,
 		'title': instance.title,
@@ -32,7 +36,11 @@ def post_detail(request, slug=None): # retrive
 	return render(request, 'post_detail.html', context)
 
 def post_list(request): # list items
-	queryset_list = Post.objects.all().order_by('-timestamp')
+	if request.user.is_staff or request.user.is_superuser:
+		queryset_list = Post.objects.all()
+	else:
+		queryset_list = Post.objects.active()
+	today = timezone.now()
 	paginator = Paginator(queryset_list, 10) # Show 10 posts per page
 	page_request_token = 'page'
 	page = request.GET.get(page_request_token)
@@ -48,6 +56,7 @@ def post_list(request): # list items
 		'object_list': queryset,
 		'title': 'Post List',
 		'page_request_token': page_request_token,
+		'today': today,
 	}
 	return render(request, 'post_list.html', context)
 

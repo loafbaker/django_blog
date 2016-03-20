@@ -46,3 +46,5 @@ Ver.19   [Custom Template Tag](../../tree/31f250fee17d467ccf06c649020d75baa9a715
 Ver.20   [Basic User Permissions](../../tree/359afe0cb1475eaf3619ccaff70f9afbcbe5fbc4)
 
 Ver.21   [Associate User to Post with a Foreign Key](../../tree/9738b44995eedff2fd46b4e155f4ed65622c3d26)
+
+Ver.22   [Using Facebook Comments](../../tree/593f91ec10ae9e47c72ad47d9f4902859e568d90)
