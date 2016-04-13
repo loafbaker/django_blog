@@ -85,4 +85,6 @@ Ver.24   [Search Posts](../../tree/c58056ad61f8bbda7e0e02431b1277a46ec4722a)
 
 **Ver.25   [v1.0](../../tree/v1.0)** _(Stable Ver.)_
 
-Curr. Ver.   Render Markdown
+Ver.26   [Render Markdown](../../tree/15e8ae240417e0724409d6cff3d616d9b772ae99)
+
+Curr. Ver.   Implement Django Pagedown for Stack Overflow style Markdown
