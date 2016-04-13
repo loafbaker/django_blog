@@ -18,7 +18,10 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from .views import home
+
 urlpatterns = [
+    url(r'^$', home, name='home'),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^admin/', admin.site.urls),
 ]

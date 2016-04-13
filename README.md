@@ -5,6 +5,36 @@ A tutorial basic blog web-app based on the framework of Django 1.9.
 
 Run successfully within Django 1.9.4 and Python 2.7.6
 
+# Setup
+
+Install all the required libraries
+
+    pip install -r requirements.txt
+
+Rebuild database
+
+    rm db.sqlite3
+    python manage.py migrate
+    python manage.py createsuperuser
+
+Alternative: In the case you want to keep demo data, then you just need to create your own superuser account.
+
+    python manage.py createsuperuser
+
+Collect static files
+
+    python manage.py collectstatic
+
+Run web server
+
+    python manage.py runserver
+
+Finally, you can view the web app with your local browser by accessing `http://localhost:8000/`.
+
+Also, you can access the administration page by logging in with your superuser account within the interface `http://localhost:8000/admin/`.
+
+# Minor Versions
+
 Ver.1   [Install & Admin](../../tree/63967d94c2443d3665a435d4b1ad3448e8f59131)
 
 Ver.2   [First App & Model](../../tree/1a0ff02f17824fe3b1a8435e18138b046669638f)
@@ -50,3 +80,5 @@ Ver.21   [Associate User to Post with a Foreign Key](../../tree/9738b44995eedff2
 Ver.22   [Using Facebook Comments](../../tree/593f91ec10ae9e47c72ad47d9f4902859e568d90)
 
 Ver.23   [Item Publish Date & Handling Drafts](../../tree/6f0f9d997765a69401426065bc4f40e113ad4747)
+
+Ver.24   [Search Posts](../../tree/c58056ad61f8bbda7e0e02431b1277a46ec4722a)
