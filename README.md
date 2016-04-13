@@ -13,7 +13,7 @@ Install all the required libraries
 
 Rebuild database
 
-    rm db.sqlite3
+    rm blog.sqlite3
     python manage.py migrate
     python manage.py createsuperuser
 
@@ -82,3 +82,7 @@ Ver.22   [Using Facebook Comments](../../tree/593f91ec10ae9e47c72ad47d9f4902859e
 Ver.23   [Item Publish Date & Handling Drafts](../../tree/6f0f9d997765a69401426065bc4f40e113ad4747)
 
 Ver.24   [Search Posts](../../tree/c58056ad61f8bbda7e0e02431b1277a46ec4722a)
+
+**Ver.25   [v1.0](../../tree/v1.0)** _(Stable Ver.)_
+
+Curr. Ver.   Render Markdown
