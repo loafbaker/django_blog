@@ -87,4 +87,6 @@ Ver.24   [Search Posts](../../tree/c58056ad61f8bbda7e0e02431b1277a46ec4722a)
 
 Ver.26   [Render Markdown](../../tree/15e8ae240417e0724409d6cff3d616d9b772ae99)
 
-Curr. Ver.   Implement Django Pagedown for Stack Overflow style Markdown
+Ver.27   [Implement Django Pagedown for Stack Overflow style Markdown](../../tree/fa0a0822a14fb68f39f5bd068d8d2c394e75d221)
+
+Curr. Ver.   Responsive Image Inside of Post Markdown Content
