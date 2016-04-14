@@ -4,6 +4,9 @@ from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils import timezone
+from django.utils.safestring import mark_safe
+
+from markdown_deux import markdown
 
 # Create your models here.
 
@@ -42,5 +45,10 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('posts:detail', kwargs={'slug': self.slug})
 
+	def get_markdown(self):
+		content = self.content
+		markdown_html = markdown(content)
+		return mark_safe(markdown_html)
+
 	class Meta:
-		ordering = ['timestamp', 'updated']
+		ordering = ['-timestamp', '-updated']
