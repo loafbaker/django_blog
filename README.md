@@ -97,4 +97,6 @@ Ver.30   [Dynamic Preview of Form Data](../../tree/7f99ccd0f8fc3aab198a8d23d3874
 
 Ver.31   [Django Crispy Forms](../../tree/c3df445bdf21261c7ee8d2c750bba767013cf577)
 
-Curr. Ver.   Bootstrap Input Groups
+Ver.32   [Bootstrap Input Groups](../../tree/157325f976b84a244c39083499c1897928367ac0)
+
+Curr. Ver.   Django Generic Foreign Keys

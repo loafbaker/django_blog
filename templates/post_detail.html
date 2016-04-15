@@ -29,8 +29,21 @@
         <div class="post-detail-item">{{ instance.get_markdown }}</div>
         <br/>
         <hr/>
+        <!-- Onsite comment -->
+        <div>
+          <p class="lead">Comments</p>
+  {% for comment in comments %}
+          <div class="">
+            {{ comment.content|linebreaks }}
+            <br/>
+            <small>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago</small>
+            {% if not forloop.last %}<hr/>{% endif %}
+          </div>
+  {% endfor %}
+          
+        </div>
         <!-- Facebook comment -->
-        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+<!--         <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div> -->
       </div>
     </div>
 

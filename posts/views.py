@@ -1,11 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
+from django.contrib.contenttypes.models import ContentType
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
+from comments.models import Comment
 from .models import Post
 from .forms import PostForm
 
@@ -30,9 +32,13 @@ def post_detail(request, slug=None): # retrive
 	if not (request.user.is_staff or request.user.is_superuser):
 		if instance.draft or instance.publish > timezone.now():
 			raise Http404
+	content_type = ContentType.objects.get_for_model(Post)
+	obj_id = instance.id
+	comments = Comment.objects.filter(content_type=content_type, object_id=obj_id)
 	context = {
 		'instance': instance,
 		'title': instance.title,
+		'comments': comments,
 	}
 	return render(request, 'post_detail.html', context)
 
