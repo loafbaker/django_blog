@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third-party Apps
+    'crispy_forms',
     'markdown_deux',
     'pagedown',
     # Local Apps
@@ -134,3 +135,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+
+# Crispy forms settings
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

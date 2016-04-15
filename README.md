@@ -93,4 +93,6 @@ Ver.28   [Responsive Image Inside of Post Markdown Content](../../tree/f99ca0c02
 
 Ver.29   [Render & Truncate Markdown with Template Tags](../../tree/73fc57ee0b03d0cec708fc1360c846ce5c54d9e3)
 
-Curr. Ver.   Dynamic Preview of Form Data
+Ver.30   [Dynamic Preview of Form Data](../../tree/7f99ccd0f8fc3aab198a8d23d387474ff6c2961b)
+
+Curr. Ver.   Django Crispy Forms
