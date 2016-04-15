@@ -95,4 +95,6 @@ Ver.29   [Render & Truncate Markdown with Template Tags](../../tree/73fc57ee0b03
 
 Ver.30   [Dynamic Preview of Form Data](../../tree/7f99ccd0f8fc3aab198a8d23d387474ff6c2961b)
 
-Curr. Ver.   Django Crispy Forms
+Ver.31   [Django Crispy Forms](../../tree/c3df445bdf21261c7ee8d2c750bba767013cf577)
+
+Curr. Ver.   Bootstrap Input Groups
