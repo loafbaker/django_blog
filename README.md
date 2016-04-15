@@ -99,4 +99,6 @@ Ver.31   [Django Crispy Forms](../../tree/c3df445bdf21261c7ee8d2c750bba767013cf5
 
 Ver.32   [Bootstrap Input Groups](../../tree/157325f976b84a244c39083499c1897928367ac0)
 
-Curr. Ver.   Django Generic Foreign Keys
+Ver.33   [Django Generic Foreign Keys](../../tree/9794c621797f0e3093672bc428a65d67a05fbd00)
+
+Curr. Ver.   Model Managers & Instance Methods

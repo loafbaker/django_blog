@@ -32,18 +32,16 @@
         <!-- Onsite comment -->
         <div>
           <p class="lead">Comments</p>
-  {% for comment in comments %}
-          <div class="">
-            {{ comment.content|linebreaks }}
-            <br/>
-            <small>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago</small>
-            {% if not forloop.last %}<hr/>{% endif %}
-          </div>
+  {% for comment in instance.comments %}
+          <blockquote>
+            <p>{{ comment.content|linebreaks }}</p>
+            <footer>via <cite title="{{ comment.user }}">{{ comment.user }}</cite>, {{ comment.timestamp|timesince }} ago</footer>
+          </blockquote>
+          {% if not forloop.last %}<hr/>{% endif %}
   {% endfor %}
-          
         </div>
         <!-- Facebook comment -->
-<!--         <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div> -->
+        <!-- <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div> -->
       </div>
     </div>
 

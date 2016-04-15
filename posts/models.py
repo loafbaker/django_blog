@@ -10,6 +10,8 @@ from markdown_deux import markdown
 
 # Create your models here.
 
+from comments.models import Comment
+
 class PostManager(models.Manager):
 	def active(self, *args, **kwargs):
 		return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
@@ -49,6 +51,11 @@ class Post(models.Model):
 		content = self.content
 		markdown_html = markdown(content)
 		return mark_safe(markdown_html)
+
+	@property
+	def comments(self):
+		qs = Comment.objects.filter_by_instance(self)
+		return qs
 
 	class Meta:
 		ordering = ['-timestamp', '-updated']
