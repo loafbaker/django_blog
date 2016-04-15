@@ -91,4 +91,6 @@ Ver.27   [Implement Django Pagedown for Stack Overflow style Markdown](../../tre
 
 Ver.28   [Responsive Image Inside of Post Markdown Content](../../tree/f99ca0c02cdd7c54347a5b56776a8eb751ef80a4)
 
-Curr. Ver.   Render & Truncate Markdown with Template Tags
+Ver.29   [Render & Truncate Markdown with Template Tags](../../tree/73fc57ee0b03d0cec708fc1360c846ce5c54d9e3)
+
+Curr. Ver.   Dynamic Preview of Form Data
