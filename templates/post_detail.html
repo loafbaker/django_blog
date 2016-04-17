@@ -41,20 +41,22 @@
   {% for comment in instance.comments %}
           <blockquote>
             <p>{{ comment.content|linebreaks }}</p>
-            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago</footer>
+            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}&middot; <a class="comment-reply-btn" href="#">Reply</a></footer>
 
+            <div class="comment-reply">
+              <!-- Reply form -->
+              <form method="POST" action="">{% csrf_token %}
+                <input type="hidden" name="parent_id" value="{{ comment.id }}" />
+                {{ comment_form|crispy }}
+                <input type="submit" value="Reply" class="btn btn-default" />
+              </form>
     {% for child_comment in comment.children %}
-            <blockquote>
-              <p>{{ child_comment.content|linebreaks }}</p>
-              <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago</footer>
-            </blockquote>
+              <blockquote>
+                <p>{{ child_comment.content|linebreaks }}</p>
+                <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago</footer>
+              </blockquote>
     {% endfor %}
-            <!-- Reply form -->
-            <form method="POST" action="">{% csrf_token %}
-              <input type="hidden" name="parent_id" value="{{ comment.id }}" />
-              {{ comment_form|crispy }}
-              <input type="submit" value="Reply" class="btn btn-default" />
-            </form>
+            </div>
 
           </blockquote>
           {% if not forloop.last %}<hr/>{% endif %}

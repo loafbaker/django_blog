@@ -105,4 +105,6 @@ Ver.34   [Model Managers & Instance Methods](../../tree/ebca367d62a050405fcb212e
 
 Ver.35   [Create Comments](../../tree/a03c5f6c61e35e815d0cda515df2a7b4cf8f4448)
 
-Curr. Ver.   Reply to Comments
+Ver.36   [Reply to Comments](../../tree/46fd0a25443b2345c6f82986b5e77e69e1b6dc13)
+
+Curr. Ver.   jQuery fadeToggle for Comment Replies

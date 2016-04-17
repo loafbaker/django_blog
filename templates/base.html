@@ -80,6 +80,18 @@
           setContent(newContent);
         })
 
+        $(".comment-reply").css("display", "none");
+
+        $(".comment-reply-btn").click(function(event){
+          event.preventDefault();
+          $(this).parent().next(".comment-reply").fadeToggle();
+          btnText = $(this).text();
+          if (btnText == "Reply")
+            $(this).text("Collapse");
+          else
+            $(this).text("Reply");
+        })
+
       })
     </script>
 
