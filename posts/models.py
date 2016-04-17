@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.utils.safestring import mark_safe
@@ -56,6 +57,11 @@ class Post(models.Model):
 	def comments(self):
 		qs = Comment.objects.filter_by_instance(self)
 		return qs
+
+	@property
+	def get_content_type(self):
+		content_type = ContentType.objects.get_for_model(self.__class__)
+		return content_type
 
 	class Meta:
 		ordering = ['-timestamp', '-updated']

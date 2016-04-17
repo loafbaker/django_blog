@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load urlify %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}
   {{ instance.title }} | {{ block.super }}
@@ -32,10 +33,14 @@
         <!-- Onsite comment -->
         <div>
           <p class="lead">Comments</p>
+          <form method="POST" action="">{% csrf_token %}
+            {{ comment_form|crispy }}
+            <input type="submit" value="Post comment" class="btn btn-default" />
+          </form>
   {% for comment in instance.comments %}
           <blockquote>
             <p>{{ comment.content|linebreaks }}</p>
-            <footer>via <cite title="{{ comment.user }}">{{ comment.user }}</cite>, {{ comment.timestamp|timesince }} ago</footer>
+            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago</footer>
           </blockquote>
           {% if not forloop.last %}<hr/>{% endif %}
   {% endfor %}

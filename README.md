@@ -101,4 +101,6 @@ Ver.32   [Bootstrap Input Groups](../../tree/157325f976b84a244c39083499c18979283
 
 Ver.33   [Django Generic Foreign Keys](../../tree/9794c621797f0e3093672bc428a65d67a05fbd00)
 
-Curr. Ver.   Model Managers & Instance Methods
+Ver.34   [Model Managers & Instance Methods](../../tree/ebca367d62a050405fcb212ea8ed1354373dee25)
+
+Curr. Ver.   Create Comments

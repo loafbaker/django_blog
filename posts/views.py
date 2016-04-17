@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, Http404
@@ -6,6 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 # Create your views here.
+from comments.forms import CommentForm
 from comments.models import Comment
 from .models import Post
 from .forms import PostForm
@@ -31,9 +33,37 @@ def post_detail(request, slug=None): # retrive
 	if not (request.user.is_staff or request.user.is_superuser):
 		if instance.draft or instance.publish > timezone.now():
 			raise Http404
+
+	initial_data = {
+		'content_type': instance.get_content_type,
+		'object_id': instance.id,
+	}
+	form = CommentForm(request.POST or None, initial=initial_data)
+	if request.method == 'POST' and form.is_valid():
+		c_type = form.cleaned_data.get('content_type')
+		content_type = ContentType.objects.get(model=c_type)
+		obj_id = form.cleaned_data.get('object_id')
+		content_data = form.cleaned_data.get('content')
+		if request.user.is_authenticated():
+			new_comment = Comment.objects.create(
+					user=request.user,
+					content_type=content_type,
+					object_id=obj_id,
+					content=content_data,
+				)
+		else:
+			new_comment = Comment.objects.create(
+					content_type=content_type,
+					object_id=obj_id,
+					content=content_data,
+				)
+		if new_comment:
+			form = CommentForm(initial=initial_data)
+
 	context = {
 		'instance': instance,
 		'title': instance.title,
+		'comment_form': form,
 	}
 	return render(request, 'post_detail.html', context)
 

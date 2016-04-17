@@ -15,7 +15,7 @@ class CommentManager(models.Manager):
 		return qs
 
 class Comment(models.Model):
-	user = models.ForeignKey(settings.AUTH_USER_MODEL)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True) # Allow Anonymous user
 
 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
 	object_id = models.PositiveIntegerField()
@@ -27,8 +27,14 @@ class Comment(models.Model):
 	objects = CommentManager()
 
 	def __unicode__(self):
-		return str(self.user.username)
+		return self.get_user_name  # str(self.user.username)
 
 	def __str__(self):
-		return str(self.user.username)
+		return self.get_user_name  # str(self.user.username)
 
+	@property
+	def get_user_name(self):
+		if self.user:
+			return self.user.username
+		else:
+			return 'Anonymous User'
