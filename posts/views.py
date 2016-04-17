@@ -40,10 +40,21 @@ def post_detail(request, slug=None): # retrive
 	}
 	form = CommentForm(request.POST or None, initial=initial_data)
 	if request.method == 'POST' and form.is_valid():
+		# Gather usual data
 		c_type = form.cleaned_data.get('content_type')
 		content_type = ContentType.objects.get(model=c_type)
 		obj_id = form.cleaned_data.get('object_id')
 		content_data = form.cleaned_data.get('content')
+		# Check if it is a comment form or reply form
+		# Note: the 'parent_id' field is not defined in the CommentForm class,
+		#       thus it can not be collected by the form.cleaned_data.get method
+		parent_id = request.POST.get('parent_id')
+		if parent_id:
+			parent = get_object_or_404(Comment, id=parent_id)
+			c_type = parent.get_content_type
+			content_type = ContentType.objects.get(model=c_type)
+			obj_id = parent.id
+
 		if request.user.is_authenticated():
 			new_comment = Comment.objects.create(
 					user=request.user,
@@ -57,8 +68,7 @@ def post_detail(request, slug=None): # retrive
 					object_id=obj_id,
 					content=content_data,
 				)
-		if new_comment:
-			form = CommentForm(initial=initial_data)
+		return HttpResponseRedirect(new_comment.content_object.get_absolute_url())
 
 	context = {
 		'instance': instance,

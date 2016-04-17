@@ -103,4 +103,6 @@ Ver.33   [Django Generic Foreign Keys](../../tree/9794c621797f0e3093672bc428a65d
 
 Ver.34   [Model Managers & Instance Methods](../../tree/ebca367d62a050405fcb212ea8ed1354373dee25)
 
-Curr. Ver.   Create Comments
+Ver.35   [Create Comments](../../tree/a03c5f6c61e35e815d0cda515df2a7b4cf8f4448)
+
+Curr. Ver.   Reply to Comments

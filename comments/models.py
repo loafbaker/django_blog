@@ -3,11 +3,17 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.core.urlresolvers import reverse
 from django.db import models
 
 # Create your models here.
 
 class CommentManager(models.Manager):
+	def all(self):
+		content_type = ContentType.objects.get(model='post')
+		qs = super(CommentManager, self).filter(content_type=content_type)
+		return qs
+
 	def filter_by_instance(self, instance):
 		content_type = ContentType.objects.get_for_model(instance.__class__)
 		obj_id = instance.id
@@ -32,9 +38,39 @@ class Comment(models.Model):
 	def __str__(self):
 		return self.get_user_name  # str(self.user.username)
 
+	class Meta:
+		ordering = ['-timestamp']
+
+	def get_absolute_url(self):
+		instance = self
+		while not instance.first_layered():
+			instance = instance.parent
+		return self.content_object.get_absolute_url()
+
 	@property
 	def get_user_name(self):
 		if self.user:
 			return self.user.username
 		else:
 			return 'Anonymous User'
+
+	@property
+	def get_content_type(self):
+		content_type = ContentType.objects.get_for_model(self.__class__)
+		return content_type
+
+	# Replies to this comment
+	def children(self):
+		return Comment.objects.filter_by_instance(self)
+
+	# If the instance's parent is a post,
+	# then the instance is the root comment
+	def first_layered(self):
+		return self.content_type.model == 'post'
+
+	@property
+	def parent(self):
+		if self.first_layered():
+			return None
+		else:
+			return self.content_object
