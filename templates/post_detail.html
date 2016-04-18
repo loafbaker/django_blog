@@ -41,7 +41,7 @@
   {% for comment in instance.comments %}
           <blockquote>
             <p>{{ comment.content|linebreaks }}</p>
-            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}&middot; <a class="comment-reply-btn" href="#">Reply</a></footer>
+            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>,  <a href="{{ comment.get_absolute_url }}">{{ comment.timestamp|timesince }} ago</a> {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}&middot; <a class="comment-reply-btn" href="#">Reply</a></footer>
 
             <div class="comment-reply">
               <!-- Reply form -->

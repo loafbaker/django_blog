@@ -42,10 +42,7 @@ class Comment(models.Model):
 		ordering = ['-timestamp']
 
 	def get_absolute_url(self):
-		instance = self
-		while not instance.first_layered():
-			instance = instance.parent
-		return self.content_object.get_absolute_url()
+		return reverse('comments:thread', kwargs={'id': self.id})
 
 	@property
 	def get_user_name(self):

@@ -22,6 +22,7 @@ from .views import home
 
 urlpatterns = [
     url(r'^$', home, name='home'),
+    url(r'^comments/', include('comments.urls', namespace='comments')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^admin/', admin.site.urls),
 ]
