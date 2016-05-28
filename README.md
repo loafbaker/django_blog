@@ -109,4 +109,6 @@ Ver.36   [Reply to Comments](../../tree/46fd0a25443b2345c6f82986b5e77e69e1b6dc13
 
 Ver.37   [jQuery fadeToggle for Comment Replies](../../tree/b0d140d8e51c28266bacf241430c96985df854af)
 
-Curr. Ver.   Comment Thread
+Ver.38   [Comment Thread](../../tree/977e0f1926a492127cab7b5686c074e56f02e891)
+
+Curr. Ver.   Count Words & Blog Post Read Time

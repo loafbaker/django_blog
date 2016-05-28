@@ -32,6 +32,7 @@ class Post(models.Model):
 	width_field = models.IntegerField(default=0)
 	height_field = models.IntegerField(default=0)
 	content = models.TextField()
+	read_time = models.TimeField(null=True, blank=True)
 	draft = models.BooleanField(default=False)
 	publish = models.DateTimeField(auto_now=False, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -62,6 +63,15 @@ class Post(models.Model):
 	def get_content_type(self):
 		content_type = ContentType.objects.get_for_model(self.__class__)
 		return content_type
+
+	@property
+	def read_time_in_minutes(self):
+		minutes = int(self.read_time.strftime('%-M'))
+		if minutes == 1:
+			result_str = '< 1 minute'
+		else:
+			result_str = '%s minutes' % (minutes)
+		return result_str
 
 	class Meta:
 		ordering = ['-timestamp', '-updated']
