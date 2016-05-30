@@ -44,7 +44,7 @@
   {% for comment in instance.comments %}
           <blockquote>
             <p>{{ comment.content|linebreaks }}</p>
-            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>,  <a href="{{ comment.get_absolute_url }}">{{ comment.timestamp|timesince }} ago</a> {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}&middot; <a class="comment-reply-btn" href="#">Reply</a></footer>
+            <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>,  <a href="{{ comment.get_absolute_url }}">{{ comment.timestamp|timesince }} ago</a> {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}&middot; <a class="comment-reply-btn" href="#">Reply</a> {% if request.user == comment.user %}&middot; <a href="{{ comment.get_delete_url }}">Delete</a>{% endif %}</footer>
 
             <div class="comment-reply">
               <!-- Reply form -->
@@ -56,7 +56,7 @@
     {% for child_comment in comment.children %}
               <blockquote>
                 <p>{{ child_comment.content|linebreaks }}</p>
-                <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago</footer>
+                <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago {% if request.user == child_comment.user %} <a href="{{ child_comment.get_delete_url }}">Delete</a>{% endif %}</footer>
               </blockquote>
     {% endfor %}
             </div>

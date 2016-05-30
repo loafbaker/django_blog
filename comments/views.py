@@ -1,5 +1,6 @@
+from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 
 # Create your views here.
@@ -50,3 +51,28 @@ def comment_thread(request, id):
 			'comment': comment,
 		}
 	return render(request, 'comment_thread.html', context)
+
+def comment_delete(request, id):
+	try:
+		comment = Comment.objects.get(id=id)
+	except Comment.DoesNotExist:
+		raise Http404
+
+	if comment.user != request.user or not comment.user:
+		response = HttpResponse('You do not have permission to delete this.')
+		response.status_code = 403
+		return response
+
+	if request.method == 'POST':
+		parent_obj_url = comment.content_object.get_absolute_url()
+		children = comment.children()
+		if children.count() > 0:
+			for child in children:
+				child.delete()
+		comment.delete()
+		messages.success(request, 'This comment has been deleted.')
+		return HttpResponseRedirect(parent_obj_url)
+	context = {
+		'comment': comment,
+	}
+	return render(request, 'confirm_delete.html', context)

@@ -111,4 +111,6 @@ Ver.37   [jQuery fadeToggle for Comment Replies](../../tree/b0d140d8e51c28266bac
 
 Ver.38   [Comment Thread](../../tree/977e0f1926a492127cab7b5686c074e56f02e891)
 
-Curr. Ver.   Count Words & Blog Post Read Time
+Ver.39   [Count Words & Blog Post Read Time](../../tree/cf62599c10df88a2abee34fd36421375dccb2cde)
+
+Curr. Ver.   Delete View with Confirmation & Permissions

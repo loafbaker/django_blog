@@ -44,6 +44,9 @@ class Comment(models.Model):
 	def get_absolute_url(self):
 		return reverse('comments:thread', kwargs={'id': self.id})
 
+	def get_delete_url(self):
+		return reverse('comments:delete', kwargs={'id': self.id})
+
 	@property
 	def get_user_name(self):
 		if self.user:

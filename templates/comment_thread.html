@@ -10,14 +10,14 @@
     <h1>Comment</h1>
     <blockquote style="border:none;">
       <p class="lead">{{ comment.content|linebreaks }}</p>
-      <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %}</footer>
+      <footer>via <cite title="{{ comment.get_user_name }}">{{ comment.get_user_name }}</cite>, {{ comment.timestamp|timesince }} ago {% if comment.children.count == 1 %}&middot; 1 Comment {% elif comment.children.count > 1 %}&middot; {{ comment.children.count }} Comments {% endif %} {% if request.user == comment.user %}&middot; <a href="{{ comment.get_delete_url }}">Delete</a>{% endif %}</footer>
       <br/>
       <button type="button" class="btn btn-link"><a href="{{ comment.content_object.get_absolute_url }}">Return to Parent</a></button>
       <hr/>
   {% for child_comment in comment.children %}
       <blockquote>
         <p>{{ child_comment.content|linebreaks }}</p>
-        <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago</footer>
+        <footer>via <cite title="{{ child_comment.get_user_name }}">{{ child_comment.get_user_name }}</cite>, {{ child_comment.timestamp|timesince }} ago {% if request.user == child_comment.user %} <a href="{{ child_comment.get_delete_url }}">Delete</a>{% endif %}</footer>
       </blockquote>
   {% endfor %}
   {% if form %}
