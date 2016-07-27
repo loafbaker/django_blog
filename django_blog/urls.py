@@ -18,12 +18,16 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from accounts import views as account_views
 from .views import home
 
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^comments/', include('comments.urls', namespace='comments')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
+    url(r'^login/$', account_views.login_view, name='login'),
+    url(r'^register/$', account_views.register_view, name='register'),
+    url(r'^logout/$', account_views.logout_view, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]
 

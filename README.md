@@ -113,4 +113,6 @@ Ver.38   [Comment Thread](../../tree/977e0f1926a492127cab7b5686c074e56f02e891)
 
 Ver.39   [Count Words & Blog Post Read Time](../../tree/cf62599c10df88a2abee34fd36421375dccb2cde)
 
-Curr. Ver.   Delete View with Confirmation & Permissions
+Ver.40   [Delete View with Confirmation & Permissions](../../tree/19a3d1d39dd1f00e64efa7f7e279d2067e93d20d)
+
+Curr. Ver.   User Login, Registration, Logout Form & View
