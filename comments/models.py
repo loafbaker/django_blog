@@ -74,3 +74,12 @@ class Comment(models.Model):
 			return None
 		else:
 			return self.content_object
+
+	def get_post(self):
+		instance = self
+		while not instance.first_layered():
+			instance = instance.content_object
+		return instance.content_object
+
+	def get_post_url(self):
+		return self.get_post().get_absolute_url()

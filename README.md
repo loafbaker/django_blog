@@ -117,4 +117,6 @@ Ver.40   [Delete View with Confirmation & Permissions](../../tree/19a3d1d39dd1f0
 
 Ver.41   [User Login, Registration, Logout Form & View](../../tree/efc000552b379a7d6b98a689518bf6ea652d5562)
 
-Curr. Ver.   User Login Required
+Ver.42   [User Login Required](../../tree/1104468a14963c0ca6b336f8e87b90a1f483ba68)
+
+Curr. Ver.   Breadcrumb Navigation

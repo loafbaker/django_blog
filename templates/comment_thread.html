@@ -4,6 +4,11 @@
 {% block head_title %}
   {{ comment.get_user_name }}'s Comment | {{ block.super }}
 {% endblock %}
+
+{% block post_detail_link %}
+<li><a href="{{ comment.get_post_url }}">{{ comment.get_post.title }}</a></li>
+{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
@@ -25,6 +30,11 @@
       <form method="POST" action="">{% csrf_token %}
         {{ form|crispy }}
         <input type="submit" value="Reply" class="btn btn-default" />
+        {% if request.user.is_authenticated %}
+        <span class="pull-right comment-user">as <i>{{ request.user.username }}</i></span>
+        {% else %}
+        <span class="pull-right comment-user">as <i>Anonymous User</i> or <a href="{% url 'login' %}?next={{ comment.get_absolute_url }}">Login</a></span>
+        {% endif %}
       </form>
   {% endif %}
     </blockquote>
