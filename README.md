@@ -115,4 +115,6 @@ Ver.39   [Count Words & Blog Post Read Time](../../tree/cf62599c10df88a2abee34fd
 
 Ver.40   [Delete View with Confirmation & Permissions](../../tree/19a3d1d39dd1f00e64efa7f7e279d2067e93d20d)
 
-Curr. Ver.   User Login, Registration, Logout Form & View
+Ver.41   [User Login, Registration, Logout Form & View](../../tree/efc000552b379a7d6b98a689518bf6ea652d5562)
+
+Curr. Ver.   User Login Required

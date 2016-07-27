@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
@@ -12,6 +13,7 @@ from comments.models import Comment
 from .models import Post
 from .forms import PostForm
 
+@login_required()
 def post_create(request):
 	if not (request.user.is_staff or request.user.is_superuser):
 		raise Http404
@@ -110,6 +112,7 @@ def post_list(request): # list items
 	}
 	return render(request, 'post_list.html', context)
 
+@login_required()
 def post_update(request, slug=None):
 	if not (request.user.is_staff or request.user.is_superuser):
 		raise Http404
@@ -131,6 +134,7 @@ def post_update(request, slug=None):
 	}
 	return render(request, 'post_form.html', context)
 
+@login_required()
 def post_delete(request, slug=None):
 	if not (request.user.is_staff or request.user.is_superuser):
 		raise Http404

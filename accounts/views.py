@@ -9,6 +9,7 @@ from .forms import UserLoginForm, UserRegisterForm
 
 def login_view(request):
 	title = 'Login'
+	next = request.GET.get('next', 'home')
 	form = UserLoginForm(request.POST or None)
 	if form.is_valid():
 		username = form.cleaned_data.get('username')
@@ -17,7 +18,7 @@ def login_view(request):
 		login(request, user)
 		# TODO: Redirect to the user main console
 		messages.success(request, 'The user has logged in successfully.')
-		return redirect('home')
+		return redirect(next)
 	context = {
 		'title': title,
 		'form': form,
@@ -26,6 +27,7 @@ def login_view(request):
 
 def register_view(request):
 	title = 'Register'
+	next = request.GET.get('next', 'home')
 	form = UserRegisterForm(request.POST or None)
 	if form.is_valid():
 		user = form.save(commit=False)
@@ -36,7 +38,7 @@ def register_view(request):
 		login(request, my_user)
 		# TODO: Return a message and redirect to another page
 		messages.success(request, 'New user has been registered successfully.')
-		return redirect('home')
+		return redirect(next)
 	context = {
 		'title': title,
 		'form': form,

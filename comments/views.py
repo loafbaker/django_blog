@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
@@ -52,6 +53,7 @@ def comment_thread(request, id):
 		}
 	return render(request, 'comment_thread.html', context)
 
+@login_required()
 def comment_delete(request, id):
 	try:
 		comment = Comment.objects.get(id=id)
