@@ -11,13 +11,12 @@ Install all the required libraries
 
     pip install -r requirements.txt
 
-Rebuild database
+(Optional) Delete demo post data
 
     rm blog.sqlite3
     python manage.py migrate
-    python manage.py createsuperuser
 
-Alternative: In the case you want to keep demo data, then you just need to create your own superuser account.
+Create your own superuser account.
 
     python manage.py createsuperuser
 
@@ -119,4 +118,6 @@ Ver.41   [User Login, Registration, Logout Form & View](../../tree/efc000552b379
 
 Ver.42   [User Login Required](../../tree/1104468a14963c0ca6b336f8e87b90a1f483ba68)
 
-Curr. Ver.   Breadcrumb Navigation
+Ver.43   [Breadcrumb Navigation](../../tree/347ae24abe05b842de3ad12dcabdb8f420423536)
+
+**Ver.44   [v2.0](../../tree/v2.0)** _(Stable Ver.)_
