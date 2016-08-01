@@ -3,7 +3,7 @@ django_blog
 
 A tutorial basic blog web-app based on the framework of Django 1.9.
 
-Run successfully within Django 1.9.4 and Python 2.7.6
+Run successfully within Django 1.9.8 and Python 2.7.6
 
 # Setup
 
@@ -121,3 +121,5 @@ Ver.42   [User Login Required](../../tree/1104468a14963c0ca6b336f8e87b90a1f483ba
 Ver.43   [Breadcrumb Navigation](../../tree/347ae24abe05b842de3ad12dcabdb8f420423536)
 
 **Ver.44   [v2.0](../../tree/v2.0)** _(Stable Ver.)_
+
+Curr. Ver.   REST framework Installation
