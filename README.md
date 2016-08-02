@@ -126,4 +126,6 @@ Ver.45   [REST framework Installation](../../tree/862e24450a82382b1e730bfdc155fe
 
 Ver.46   [Post List API View](../../tree/35f71e67f224f793d9aeef4894a8699ec1295a93)
 
-Curr. Ver.   Post Update & Delete API View
+Ver.47   [Post Update & Delete API View](../../tree/7863e7ee62d32297351ef3f2fcb89a51b98b72f6)
+
+Curr. Ver.   Post Create API View
