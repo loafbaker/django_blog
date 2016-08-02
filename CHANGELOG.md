@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Rest Framework app.
+- Post APIs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) actions to access data
 
 ## [v2.0] - 2016-07-31
 ### Added

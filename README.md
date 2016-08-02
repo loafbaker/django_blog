@@ -132,4 +132,6 @@ Ver.48   [Post Create API View](../../tree/8415ff1a747a70caaca90914a0cd60494e9a6
 
 Ver.49   [Filtering a Queryset in a ListAPIView](../../tree/2ac5f079b74a4767eb03bd6a04d3f0adbb162f7f)
 
-Curr. Ver.   Pagination in a ListAPIView
+Ver.50   [Pagination in a ListAPIView](../../tree/73ad4bee59528f481cd540d05efeb3c92d7c2c8a)
+
+Curr. Ver.   Serializer Method Field
