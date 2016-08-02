@@ -130,4 +130,6 @@ Ver.47   [Post Update & Delete API View](../../tree/7863e7ee62d32297351ef3f2fcb8
 
 Ver.48   [Post Create API View](../../tree/8415ff1a747a70caaca90914a0cd60494e9a6496)
 
-Curr. Ver.   Filtering a Queryset in a ListAPIView
+Ver.49   [Filtering a Queryset in a ListAPIView](../../tree/2ac5f079b74a4767eb03bd6a04d3f0adbb162f7f)
+
+Curr. Ver.   Pagination in a ListAPIView
