@@ -28,6 +28,11 @@ urlpatterns = [
     url(r'^login/$', account_views.login_view, name='login'),
     url(r'^register/$', account_views.register_view, name='register'),
     url(r'^logout/$', account_views.logout_view, name='logout'),
+
+    # APIs
+    url(r'^api/posts/', include('posts.api.urls', namespace='posts_api')),
+
+    # Backend
     url(r'^admin/', admin.site.urls),
 ]
 

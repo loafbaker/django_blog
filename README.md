@@ -122,4 +122,6 @@ Ver.43   [Breadcrumb Navigation](../../tree/347ae24abe05b842de3ad12dcabdb8f42042
 
 **Ver.44   [v2.0](../../tree/v2.0)** _(Stable Ver.)_
 
-Curr. Ver.   REST framework Installation
+Ver.45   [REST framework Installation](../../tree/862e24450a82382b1e730bfdc155fe8fb5d6c30d)
+
+Curr. Ver.   Post List API View
