@@ -138,4 +138,6 @@ Ver.51   [Serializer Method Field](../../tree/d37e8a12733ae7edf6cf5a1e8b97c696e2
 
 Ver.52   [Comment API View](../../tree/e83696e604f0f9661c5291089b9a3e424af70853)
 
-Curr. Ver.   Comment Children & Reply Count
+Ver.53   [Comment Children & Reply Count](../../tree/3045be78a95a84f0cd089a6aceca698f99568992)
+
+Curr. Ver.   Comments in Post Detail API View

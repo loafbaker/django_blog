@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from comments.api.serializers import CommentListSerializer
+
 from posts.models import Post
 
 
@@ -41,6 +43,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
 	author = serializers.SerializerMethodField()
 	html = serializers.SerializerMethodField()
 	image = serializers.SerializerMethodField()
+	comments = serializers.SerializerMethodField()
 	class Meta:
 		model = Post
 		fields = [
@@ -52,6 +55,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
 			'html',
 			'image',
 			'publish',
+			'comments',
 		]
 
 	def get_author(self, obj):
@@ -65,4 +69,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
 			return obj.image.url
 		else:
 			return None
+
+	def get_comments(self, obj):
+		return CommentListSerializer(obj.comments, many=True, context={'request': self.context['request']}).data
 
