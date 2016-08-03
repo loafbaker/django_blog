@@ -136,4 +136,6 @@ Ver.50   [Pagination in a ListAPIView](../../tree/73ad4bee59528f481cd540d05efeb3
 
 Ver.51   [Serializer Method Field](../../tree/d37e8a12733ae7edf6cf5a1e8b97c696e2f25ba4)
 
-Curr. Ver.   Comment API View
+Ver.52   [Comment API View](../../tree/e83696e604f0f9661c5291089b9a3e424af70853)
+
+Curr. Ver.   Comment Children & Reply Count

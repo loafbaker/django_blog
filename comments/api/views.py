@@ -1,17 +1,15 @@
 from django.db.models import Q
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
 
 from posts.api.pagination import PostPageNumberPagination
-from posts.api.permissions import IsOwnerOrReadOnly
 
 from comments.models import Comment
-from .serializers import CommentSerializer
+from .serializers import CommentListSerializer, CommentDetailSerializer
 
 class CommentListAPIView(ListAPIView):
 	queryset = Comment.objects.all()
-	serializer_class = CommentSerializer
+	serializer_class = CommentListSerializer
 	filter_backends = [SearchFilter, OrderingFilter]
 	search_fields = ['content', 'user__first_name', 'user__last_name']
 	pagination_class = PostPageNumberPagination
@@ -30,4 +28,4 @@ class CommentListAPIView(ListAPIView):
 
 class CommentDetailAPIView(RetrieveAPIView):
 	queryset = Comment.objects.all()
-	serializer_class = CommentSerializer
+	serializer_class = CommentDetailSerializer
