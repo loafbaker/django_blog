@@ -134,4 +134,6 @@ Ver.49   [Filtering a Queryset in a ListAPIView](../../tree/2ac5f079b74a4767eb03
 
 Ver.50   [Pagination in a ListAPIView](../../tree/73ad4bee59528f481cd540d05efeb3c92d7c2c8a)
 
-Curr. Ver.   Serializer Method Field
+Ver.51   [Serializer Method Field](../../tree/d37e8a12733ae7edf6cf5a1e8b97c696e2f25ba4)
+
+Curr. Ver.   Comment API View
