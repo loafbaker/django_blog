@@ -20,6 +20,41 @@ class CommentManager(models.Manager):
 		qs = super(CommentManager, self).filter(content_type=content_type, object_id=obj_id)
 		return qs
 
+	def create_by_model_type(self, model_type, slug, parent_id, content, user=None):
+		model_qs = ContentType.objects.filter(model=model_type)
+		if model_qs.exists():
+			model = model_qs.first()
+			some_model = model.model_class()
+			if slug:
+				try:
+					obj = some_model.objects.get(slug=slug)
+				except:
+					obj = None
+				if obj:
+					instance = self.model()
+					if user:
+						instance.user = user
+					instance.content_type = model
+					instance.object_id = obj.id
+					instance.content = content
+					instance.save()
+					return instance
+			if parent_id:
+				try:
+					obj = some_model.objects.get(id=parent_id)
+				except:
+					obj = None
+				if obj:
+					instance = self.model()
+					if user:
+						instance.user = user
+					instance.content_type = model
+					instance.object_id = obj.id
+					instance.content = content
+					instance.save()
+					return instance
+		return None
+
 class Comment(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True) # Allow Anonymous user
 

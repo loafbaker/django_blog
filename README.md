@@ -140,4 +140,6 @@ Ver.52   [Comment API View](../../tree/e83696e604f0f9661c5291089b9a3e424af70853)
 
 Ver.53   [Comment Children & Reply Count](../../tree/3045be78a95a84f0cd089a6aceca698f99568992)
 
-Curr. Ver.   Comments in Post Detail API View
+Ver.54   [Comments in Post Detail API View](../../tree/ad794a507205988ec27372077b1ceb5cc5e78dea)
+
+Curr. Ver.   Comment Create Serializer Function
