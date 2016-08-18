@@ -119,6 +119,13 @@ class CommentDetailSerializer(serializers.ModelSerializer):
             'reply_count',
             'replies',
         ]
+        read_only_fields = [
+            'content_type',
+            'object_id',
+            'timestamp',
+            'reply_count',
+            'replies',
+        ]
 
     def get_reply_count(self, obj):
         if obj.first_layered():

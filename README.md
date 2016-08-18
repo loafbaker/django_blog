@@ -142,4 +142,6 @@ Ver.53   [Comment Children & Reply Count](../../tree/3045be78a95a84f0cd089a6acec
 
 Ver.54   [Comments in Post Detail API View](../../tree/ad794a507205988ec27372077b1ceb5cc5e78dea)
 
-Curr. Ver.   Comment Create Serializer Function
+Ver.55   [Comment Create Serializer Function](../../tree/f9e76f3e85ca833ac1cff1e39eb771cc8a1604a8)
+
+Curr. Ver.   Comment Update & Delete in Detail API
