@@ -83,8 +83,6 @@ class CommentListSerializer(serializers.ModelSerializer):
         model = Comment
         fields = [
             'id',
-            'content_type',
-            'object_id',
             'content',
             'timestamp',
             'reply_count',
@@ -106,26 +104,28 @@ class CommentChildSerializer(serializers.ModelSerializer):
         ]
 
 class CommentDetailSerializer(serializers.ModelSerializer):
+    content_object_url = serializers.SerializerMethodField()
     reply_count = serializers.SerializerMethodField()
     replies = serializers.SerializerMethodField()
     class Meta:
         model = Comment
         fields = [
             'id',
-            'content_type',
-            'object_id',
+            'content_object_url',
             'content',
             'timestamp',
             'reply_count',
             'replies',
         ]
         read_only_fields = [
-            'content_type',
-            'object_id',
             'timestamp',
             'reply_count',
             'replies',
         ]
+
+    def get_content_object_url(self, obj):
+        url = obj.content_object.get_api_url()
+        return self.context['request'].build_absolute_uri(url)
 
     def get_reply_count(self, obj):
         if obj.first_layered():

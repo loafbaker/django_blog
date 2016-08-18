@@ -144,4 +144,6 @@ Ver.54   [Comments in Post Detail API View](../../tree/ad794a507205988ec27372077
 
 Ver.55   [Comment Create Serializer Function](../../tree/f9e76f3e85ca833ac1cff1e39eb771cc8a1604a8)
 
-Curr. Ver.   Comment Update & Delete in Detail API
+Ver.56   [Comment Update & Delete in Detail API](../../tree/86aa9969646fbb394dd3838a1e1912537c78d777)
+
+Curr. Ver.   Comment URL for Generic Foreign Key & Post API Permissions Update

@@ -1,7 +1,7 @@
 from django.db.models import Q
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, RetrieveUpdateAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 from posts.models import Post
 from .pagination import PostPageNumberPagination
@@ -41,13 +41,13 @@ class PostDetailAPIView(RetrieveAPIView):
 	lookup_field = 'slug'
 
 class PostUpdateAPIView(RetrieveUpdateAPIView):
-	permission_classes = [IsOwnerOrReadOnly]
+	permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 	queryset = Post.objects.all()
 	serializer_class = PostCreateUpdateSerializer
 	lookup_field = 'slug'
 
 class PostDeleteAPIView(DestroyAPIView):
-	permission_classes = [IsOwnerOrReadOnly]
+	permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 	queryset = Post.objects.all()
 	serializer_class = PostListSerializer
 	lookup_field = 'slug'

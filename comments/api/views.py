@@ -23,7 +23,7 @@ class CommentCreateAPIView(CreateAPIView):
 
 
 class CommentListAPIView(ListAPIView):
-	queryset = Comment.objects.all()
+	queryset = Comment.objects.filter()  # include child comments
 	serializer_class = CommentListSerializer
 	filter_backends = [SearchFilter, OrderingFilter]
 	search_fields = ['content', 'user__first_name', 'user__last_name']
