@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - Rest Framework app.
 - Post APIs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) actions to access data
 - Comment APIs
+- User register API
 
 ## [v2.0] - 2016-07-31
 ### Added

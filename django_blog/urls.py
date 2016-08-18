@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^logout/$', account_views.logout_view, name='logout'),
 
     # APIs
+    url(r'^api/users/', include('accounts.api.urls', namespace='users_api')),
     url(r'^api/comments/', include('comments.api.urls', namespace='comments_api')),
     url(r'^api/posts/', include('posts.api.urls', namespace='posts_api')),
 

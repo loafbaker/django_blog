@@ -146,4 +146,6 @@ Ver.55   [Comment Create Serializer Function](../../tree/f9e76f3e85ca833ac1cff1e
 
 Ver.56   [Comment Update & Delete in Detail API](../../tree/86aa9969646fbb394dd3838a1e1912537c78d777)
 
-Curr. Ver.   Comment URL for Generic Foreign Key & Post API Permissions Update
+Ver.57   [Comment URL for Generic Foreign Key & Post API Permissions Update](../../tree/07d46913985588334740ea32a74f404d46299063)
+
+Curr. Ver.   User Register API
