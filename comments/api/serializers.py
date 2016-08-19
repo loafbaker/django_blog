@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 from rest_framework import serializers
 
+from accounts.api.serializers import UserDetailSerializer
 from comments.models import Comment
 
 
@@ -77,12 +78,14 @@ def create_comment_serializer(model_type='post', slug=None, parent_id=None, user
     return CommentCreateSerializer
 
 class CommentListSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer(read_only=True)
     reply_count = serializers.SerializerMethodField()
     url = serializers.HyperlinkedIdentityField(view_name='comments_api:thread', lookup_field='pk')
     class Meta:
         model = Comment
         fields = [
             'id',
+            'user',
             'content',
             'timestamp',
             'reply_count',
@@ -96,15 +99,18 @@ class CommentListSerializer(serializers.ModelSerializer):
             return 0
 
 class CommentChildSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer(read_only=True)
     class Meta:
         model = Comment
         fields = [
+            'user',
             'content',
             'timestamp',
         ]
 
 class CommentDetailSerializer(serializers.ModelSerializer):
     content_object_url = serializers.SerializerMethodField()
+    user = UserDetailSerializer(read_only=True)
     reply_count = serializers.SerializerMethodField()
     replies = serializers.SerializerMethodField()
     class Meta:
@@ -112,6 +118,7 @@ class CommentDetailSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'content_object_url',
+            'user',
             'content',
             'timestamp',
             'reply_count',

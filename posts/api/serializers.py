@@ -1,12 +1,13 @@
 from rest_framework import serializers
 
+from accounts.api.serializers import UserDetailSerializer
 from comments.api.serializers import CommentListSerializer
 
 from posts.models import Post
 
 
 class PostListSerializer(serializers.ModelSerializer):
-	author = serializers.SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 	image = serializers.SerializerMethodField()
 	url = serializers.HyperlinkedIdentityField(view_name='posts_api:detail', lookup_field='slug')
 	class Meta:
@@ -14,15 +15,12 @@ class PostListSerializer(serializers.ModelSerializer):
 		fields = [
 			'title',
 			'slug',
-			'author',
+			'user',
 			'content',
 			'image',
 			'publish',
 			'url',
 		]
-
-	def get_author(self, obj):
-		return obj.user.username
 
 	def get_image(self, obj):
 		if obj.image:
@@ -40,7 +38,7 @@ class PostCreateUpdateSerializer(serializers.ModelSerializer):
 		]
 
 class PostDetailSerializer(serializers.ModelSerializer):
-	author = serializers.SerializerMethodField()
+	user = UserDetailSerializer(read_only=True)
 	html = serializers.SerializerMethodField()
 	image = serializers.SerializerMethodField()
 	comments = serializers.SerializerMethodField()
@@ -50,16 +48,13 @@ class PostDetailSerializer(serializers.ModelSerializer):
 			'id',
 			'title',
 			'slug',
-			'author',
+			'user',
 			'content',
 			'html',
 			'image',
 			'publish',
 			'comments',
 		]
-
-	def get_author(self, obj):
-		return obj.user.username
 
 	def get_html(self, obj):
 		return obj.get_markdown()

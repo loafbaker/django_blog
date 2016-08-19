@@ -148,4 +148,6 @@ Ver.56   [Comment Update & Delete in Detail API](../../tree/86aa9969646fbb394dd3
 
 Ver.57   [Comment URL for Generic Foreign Key & Post API Permissions Update](../../tree/07d46913985588334740ea32a74f404d46299063)
 
-Curr. Ver.   User Register API
+Ver.58   [User Register API](../../tree/5f3a273d01f5810cdef4f06c1de74e6791d3f804)
+
+Curr. Ver.   User Detail Serializer

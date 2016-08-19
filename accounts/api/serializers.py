@@ -43,3 +43,14 @@ class UserCreateSerializer(serializers.ModelSerializer):
         password = validated_data['password']
         user = User.objects.create_user(username, email, password)
         return validated_data
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'date_joined',
+            'last_login',
+        ]
