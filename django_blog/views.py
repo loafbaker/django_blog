@@ -14,6 +14,9 @@ class APIHomeView(APIView):
 		data = {
 			'users': {
 				'register_url': api_reverse('users_api:register', request=request),
+				'login_token_url': api_reverse('login_token', request=request),
+				'verify_token_url': api_reverse('verify_token', request=request),
+				'refresh_token_url': api_reverse('refresh_token', request=request),
 			},
 			'posts': {
 				'retrieve_url': api_reverse('posts_api:list', request=request),

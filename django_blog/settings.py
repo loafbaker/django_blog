@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -152,6 +153,15 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # # Option 1: Session authentication scheme authenticate user by verifying session data in a web browser. User has to login first.
+        # 'rest_framework.authentication.SessionAuthentication',
+        # # Option 2: Web token authentication scheme authenticate user by checking the generated web tokens, which is only vaild during limited time for specific user
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     )
+}
+
+# Django REST framework JWT settings
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300),
+    'JWT_ALLOW_REFRESH': True,
 }

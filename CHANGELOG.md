@@ -3,10 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- Rest Framework app.
-- Post APIs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) actions to access data
-- Comment APIs
-- User register API
+- [Rest Framework](http://www.django-rest-framework.org/) & [Rest Framework JWT](https://github.com/GetBlimp/django-rest-framework-jwt) support.
+- User register API.
+- JSON Web Token (JWT) Authentication APIs.
+- Post APIs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) actions to access data.
+- Comment APIs, supporting CRUD operations on both posts' comment & comments' reply
 
 ## [v2.0] - 2016-07-31
 ### Added

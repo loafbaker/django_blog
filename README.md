@@ -152,4 +152,6 @@ Ver.58   [User Register API](../../tree/5f3a273d01f5810cdef4f06c1de74e6791d3f804
 
 Ver.59   [User Detail Serializer](../../tree/bea4d2fccc9b37c354b2067498389d43a8822eda)
 
-Curr. Ver.   API Home View
+Ver.60   [API Home View](../../tree/bea4d2fccc9b37c354b2067498389d43a8822eda)
+
+Curr. Ver.   Django Rest Framework JWT Authentication

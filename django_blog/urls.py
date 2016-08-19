@@ -18,6 +18,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from rest_framework_jwt import views as jwt_views
+
 from accounts import views as account_views
 from .views import home, APIHomeView
 
@@ -31,6 +33,9 @@ urlpatterns = [
 
     # APIs
     url(r'^api/$', APIHomeView.as_view(), name='api_home'),
+    url(r'^api/auth/token/$', jwt_views.obtain_jwt_token, name='login_token'),
+    url(r'^api/auth/token/verify/$', jwt_views.verify_jwt_token, name='verify_token'),
+    url(r'^api/auth/token/refresh/$', jwt_views.refresh_jwt_token, name='refresh_token'),
     url(r'^api/users/', include('accounts.api.urls', namespace='users_api')),
     url(r'^api/comments/', include('comments.api.urls', namespace='comments_api')),
     url(r'^api/posts/', include('posts.api.urls', namespace='posts_api')),
