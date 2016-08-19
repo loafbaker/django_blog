@@ -143,3 +143,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 # Crispy forms settings
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# Django REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        # if only json object is needed as response data, comment out the second line
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}

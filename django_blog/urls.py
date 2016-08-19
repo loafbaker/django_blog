@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from accounts import views as account_views
-from .views import home
+from .views import home, APIHomeView
 
 urlpatterns = [
     url(r'^$', home, name='home'),
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^logout/$', account_views.logout_view, name='logout'),
 
     # APIs
+    url(r'^api/$', APIHomeView.as_view(), name='api_home'),
     url(r'^api/users/', include('accounts.api.urls', namespace='users_api')),
     url(r'^api/comments/', include('comments.api.urls', namespace='comments_api')),
     url(r'^api/posts/', include('posts.api.urls', namespace='posts_api')),
