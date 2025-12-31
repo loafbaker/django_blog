@@ -1,15 +1,17 @@
 django_blog
 =================
 
-A tutorial basic blog web-app based on the framework of Django 1.9.
+A tutorial basic blog web-app based on the framework of Django 5.2.
 
 Run successfully within Django 5.2.9 and Python 3.10.12
 
 # Setup
 
-Install all the required libraries
+## Method 1: Setup with `pip`
 
-    pip install -r requirements.txt
+Install all the prerequisites
+
+    pip install -r requirements.in
 
 (Optional) Delete demo post data
 
@@ -31,6 +33,31 @@ Run web server
 Finally, you can view the web app with your local browser by accessing `http://localhost:8000/`.
 
 Also, you can access the administration page by logging in with your superuser account within the interface `http://localhost:8000/admin/`.
+
+## Method 2: Setup with `uv`
+
+Initialize the virtual environment and install all the prerequisites
+
+    uv sync
+
+(Optional) Delete demo post data
+
+    rm blog.sqlite3
+    uv run manage.py migrate
+
+Create your own superuser account.
+
+    uv run manage.py createsuperuser
+
+Collect static files
+
+    uv run manage.py collectstatic
+
+Run web server
+
+    uv run manage.py runserver
+
+Now you can access the web app and the backend administration page by visiting `http://localhost:8000/` and `http://localhost:8000/admin/`, respectively.
 
 # Minor Versions
 
@@ -156,4 +183,6 @@ Ver.60   [API Home View](../../tree/bea4d2fccc9b37c354b2067498389d43a8822eda)
 
 Ver.61   [Django Rest Framework JWT Authentication](../../tree/abd912962318527473654c9d2043f4a361a4abf1)
 
-Curr. Ver.   Upgrade to Django 5.2 and Python 3
+**Ver.62**   [Upgrade to Django 5.2 and Python 3](../../tree/fe3d451c1f158746d6cc6c289785b4721859a8ea)
+
+Curr. Ver.   Add uv support

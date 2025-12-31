@@ -1,0 +1,11 @@
+django==5.2.9
+django-crispy-forms==2.5
+django-markdown-deux==1.0.6
+Pillow==12.0.0
+django-pagedown==2.2.1
+
+crispy-bootstrap3==2024.1
+
+django-filter==25.2
+djangorestframework==3.16.1
+djangorestframework-simplejwt==5.5.1

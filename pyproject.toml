@@ -1,0 +1,17 @@
+[project]
+name = "django-blog"
+version = "0.3.0"
+description = "A tutorial basic blog web-app based on the framework of Django 5.2"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "crispy-bootstrap3>=2024.1",
+    "django>=5.2.9",
+    "django-crispy-forms>=2.5",
+    "django-filter>=25.2",
+    "django-markdown-deux>=1.0.6",
+    "django-pagedown>=2.2.1",
+    "djangorestframework>=3.16.1",
+    "djangorestframework-simplejwt>=5.5.1",
+    "pillow>=12.0.0",
+]
