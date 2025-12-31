@@ -33,6 +33,7 @@ class TestUser:
         self.email = email
         self.password = password
         self.token = ''
+        self.refresh = ''
 
     def print_json(self, json_data, prompt=''):
         if len(prompt) > 0:
@@ -67,7 +68,8 @@ class TestUser:
         login_r = requests.post(login_url, data=data)
         json_data = login_r.json()  # login_r.text
         self.print_json(json_data, 'The response of login token API: ')
-        self.token = json_data['token']
+        self.token = json_data['access']
+        self.refresh = json_data['refresh']
         return json_data
 
     def verify_token(self, token):
@@ -89,12 +91,12 @@ class TestUser:
         :return: response json object from refresh token API
         """
         data = {
-            'token': self.token,
+            'refresh': self.refresh,
         }
         refresh_r = requests.post(refresh_url, data=data)
         json_data = refresh_r.json()  # login_r.text
         self.print_json(json_data, 'The response of refresh token API: ')
-        self.token = json_data['token']
+        self.token = json_data['access']
         return json_data
 
     def create_post(self, title, content, publish):
@@ -111,7 +113,7 @@ class TestUser:
             'publish' : publish,
         }
         headers = {
-            'Authorization': 'JWT %s' % (self.token)
+            'Authorization': 'Bearer %s' % (self.token)
         }
         post_c_r = requests.post(posts_create_url, headers=headers, data=data)
         json_data = post_c_r.json()
@@ -129,7 +131,7 @@ class TestUser:
             'content': content,
         }
         headers = {
-            'Authorization': 'JWT %s' % (self.token)
+            'Authorization': 'Bearer %s' % (self.token)
         }
         test_url = comments_create_url + '?type=post&slug=' + slug
         comment_c_r = requests.post(test_url, headers=headers, data=data)
@@ -148,7 +150,7 @@ class TestUser:
             'content': content,
         }
         headers = {
-            'Authorization': 'JWT %s' % (self.token)
+            'Authorization': 'Bearer %s' % (self.token)
         }
         test_url = comments_create_url + '?type=comment&parent_id=' + str(parent_id)
         comment_c_r = requests.post(test_url, headers=headers, data=data)
@@ -191,7 +193,7 @@ def run_api_test(test_username, test_email, test_password):
     # User login
     test_user.login()
 
-    # Verfity token
+    # Verify token
     test_user.verify_token(test_user.token)
 
     # Create a post

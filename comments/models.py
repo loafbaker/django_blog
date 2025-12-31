@@ -1,9 +1,7 @@
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 
 # Create your models here.
@@ -56,7 +54,7 @@ class CommentManager(models.Manager):
 		return None
 
 class Comment(models.Model):
-	user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True) # Allow Anonymous user
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE) # Allow Anonymous user
 
 	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
 	object_id = models.PositiveIntegerField()

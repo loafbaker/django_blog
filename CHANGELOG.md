@@ -1,13 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [v3.0] - 2025-12-31
 ### Added
-- [Rest Framework](http://www.django-rest-framework.org/) & [Rest Framework JWT](https://github.com/GetBlimp/django-rest-framework-jwt) support.
+- [Rest Framework](http://www.django-rest-framework.org/) & [Simple JWT](https://github.com/jazzband/djangorestframework-simplejwt) support.
 - User register API.
 - JSON Web Token (JWT) Authentication APIs.
 - Post APIs for [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) actions to access data.
 - Comment APIs, supporting CRUD operations on both posts' comment & comments' reply
+
+### Changed
+- Major upgrade to Django 5.2 and Python 3
+- Fix some small bugs related to compatibility.
 
 ## [v2.0] - 2016-07-31
 ### Added

@@ -1,11 +1,13 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 
-from . import views 
+from . import views
+
+app_name = 'posts'
 
 urlpatterns = [
-    url(r'^$', views.post_list, name='list'),
-    url(r'^create/$', views.post_create),
-    url(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
-    url(r'^(?P<slug>[\w-]+)/edit/$', views.post_update, name='update'),
-    url(r'^(?P<slug>[\w-]+)/delete/$', views.post_delete),
+    path('', views.post_list, name='list'),
+    path('create/', views.post_create),
+    re_path(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
+    re_path(r'^(?P<slug>[\w-]+)/edit/$', views.post_update, name='update'),
+    re_path(r'^(?P<slug>[\w-]+)/delete/$', views.post_delete),
 ]

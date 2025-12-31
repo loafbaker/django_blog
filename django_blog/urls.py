@@ -1,49 +1,46 @@
-"""django_blog URL Configuration
+"""
+URL configuration for django_blog project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.urls import include, path
 
-from rest_framework_jwt import views as jwt_views
+from rest_framework_simplejwt import views as jwt_views
 
 from accounts import views as account_views
 from .views import home, APIHomeView
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
-    url(r'^comments/', include('comments.urls', namespace='comments')),
-    url(r'^posts/', include('posts.urls', namespace='posts')),
-    url(r'^login/$', account_views.login_view, name='login'),
-    url(r'^register/$', account_views.register_view, name='register'),
-    url(r'^logout/$', account_views.logout_view, name='logout'),
+    path('', home, name='home'),
+    path('comments/', include('comments.urls', namespace='comments')),
+    path('posts/', include('posts.urls', namespace='posts')),
+    path('login/', account_views.login_view, name='login'),
+    path('register/', account_views.register_view, name='register'),
+    path('logout/', account_views.logout_view, name='logout'),
 
     # APIs
-    url(r'^api/$', APIHomeView.as_view(), name='api_home'),
-    url(r'^api/auth/token/$', jwt_views.obtain_jwt_token, name='login_token'),
-    url(r'^api/auth/token/verify/$', jwt_views.verify_jwt_token, name='verify_token'),
-    url(r'^api/auth/token/refresh/$', jwt_views.refresh_jwt_token, name='refresh_token'),
-    url(r'^api/users/', include('accounts.api.urls', namespace='users_api')),
-    url(r'^api/comments/', include('comments.api.urls', namespace='comments_api')),
-    url(r'^api/posts/', include('posts.api.urls', namespace='posts_api')),
+    path('api/', APIHomeView.as_view(), name='api_home'),
+    path('api/auth/token/', jwt_views.TokenObtainPairView.as_view(), name='login_token'),
+    path('api/auth/token/verify/', jwt_views.TokenVerifyView.as_view(), name='verify_token'),
+    path('api/auth/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='refresh_token'),
+    path('api/users/', include('accounts.api.urls', namespace='users_api')),
+    path('api/comments/', include('comments.api.urls', namespace='comments_api')),
+    path('api/posts/', include('posts.api.urls', namespace='posts_api')),
 
     # Backend
-    url(r'^admin/', admin.site.urls),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

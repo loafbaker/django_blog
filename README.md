@@ -3,7 +3,7 @@ django_blog
 
 A tutorial basic blog web-app based on the framework of Django 1.9.
 
-Run successfully within Django 1.9.8 and Python 2.7.6
+Run successfully within Django 5.2.9 and Python 3.10.12
 
 # Setup
 
@@ -154,4 +154,6 @@ Ver.59   [User Detail Serializer](../../tree/bea4d2fccc9b37c354b2067498389d43a88
 
 Ver.60   [API Home View](../../tree/bea4d2fccc9b37c354b2067498389d43a8822eda)
 
-Curr. Ver.   Django Rest Framework JWT Authentication
+Ver.61   [Django Rest Framework JWT Authentication](../../tree/abd912962318527473654c9d2043f4a361a4abf1)
+
+Curr. Ver.   Upgrade to Django 5.2 and Python 3

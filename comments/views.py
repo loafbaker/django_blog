@@ -18,18 +18,18 @@ def comment_thread(request, id):
 	# Render form only when the comment is a first-layered one
 	if comment.first_layered():
 		initial_data = {
-			'content_type': comment.get_content_type,
+			'content_type_model': comment.get_content_type.model,
 			'object_id': comment.id,
 		}
 		form = CommentForm(request.POST or None, initial=initial_data)
 		if request.method == 'POST' and form.is_valid():
 			# Gather usual data
-			c_type = form.cleaned_data.get('content_type')
-			content_type = ContentType.objects.get(model=c_type)
+			c_type_model = form.cleaned_data.get('content_type_model')
+			content_type = ContentType.objects.get(model=c_type_model)
 			obj_id = form.cleaned_data.get('object_id')
 			content_data = form.cleaned_data.get('content')
 
-			if request.user.is_authenticated():
+			if request.user.is_authenticated:
 				new_comment = Comment.objects.create(
 						user=request.user,
 						content_type=content_type,
