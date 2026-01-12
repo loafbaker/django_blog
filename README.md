@@ -185,4 +185,6 @@ Ver.61   [Django Rest Framework JWT Authentication](../../tree/abd91296231852747
 
 **Ver.62**   [Upgrade to Django 5.2 and Python 3](../../tree/fe3d451c1f158746d6cc6c289785b4721859a8ea)
 
-Curr. Ver.   Add uv support
+Ver.63   [Add uv support](../../tree/4d3331a50df09ab17e01349edbde9154edebb159)
+
+Curr. Ver.   Optimize the url patterns

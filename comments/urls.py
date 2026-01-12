@@ -1,10 +1,10 @@
-from django.urls import re_path
+from django.urls import path
 
 from . import views
 
 app_name = 'comments'
 
 urlpatterns = [
-    re_path(r'^(?P<id>\d+)/$', views.comment_thread, name='thread'),
-    re_path(r'^(?P<id>\d+)/delete/$', views.comment_delete, name='delete'),
+    path('<int:id>/', views.comment_thread, name='thread'),
+    path('<int:id>/delete/', views.comment_delete, name='delete'),
 ]

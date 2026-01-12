@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 
 from . import views
 
@@ -7,7 +7,7 @@ app_name = 'posts'
 urlpatterns = [
     path('', views.post_list, name='list'),
     path('create/', views.post_create),
-    re_path(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
-    re_path(r'^(?P<slug>[\w-]+)/edit/$', views.post_update, name='update'),
-    re_path(r'^(?P<slug>[\w-]+)/delete/$', views.post_delete),
+    path('<slug:slug>/', views.post_detail, name='detail'),
+    path('<slug:slug>/edit/', views.post_update, name='update'),
+    path('<slug:slug>/delete/', views.post_delete),
 ]
