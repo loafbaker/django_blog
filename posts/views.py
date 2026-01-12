@@ -28,7 +28,7 @@ def post_create(request):
 		'form': form,
 		'button': 'Create Post',
 	}
-	return render(request, 'post_form.html', context)
+	return render(request, 'posts/post_form.html', context)
 
 def post_detail(request, slug=None): # retrive
 	instance = get_object_or_404(Post, slug=slug)
@@ -77,7 +77,7 @@ def post_detail(request, slug=None): # retrive
 		'title': instance.title,
 		'comment_form': form,
 	}
-	return render(request, 'post_detail.html', context)
+	return render(request, 'posts/post_detail.html', context)
 
 def post_list(request): # list items
 	if request.user.is_staff or request.user.is_superuser:
@@ -110,7 +110,7 @@ def post_list(request): # list items
 		'page_request_token': page_request_token,
 		'today': today,
 	}
-	return render(request, 'post_list.html', context)
+	return render(request, 'posts/post_list.html', context)
 
 @login_required()
 def post_update(request, slug=None):
@@ -132,7 +132,7 @@ def post_update(request, slug=None):
 		'form': form,
 		'button': 'Update Post',
 	}
-	return render(request, 'post_form.html', context)
+	return render(request, 'posts/post_form.html', context)
 
 @login_required()
 def post_delete(request, slug=None):

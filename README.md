@@ -187,4 +187,6 @@ Ver.61   [Django Rest Framework JWT Authentication](../../tree/abd91296231852747
 
 Ver.63   [Add uv support](../../tree/4d3331a50df09ab17e01349edbde9154edebb159)
 
-Curr. Ver.   Optimize the url patterns
+Ver.64   [Optimize the url patterns](../../tree/288cace442014394da3420f5c973188d59fe792d)
+
+Curr. Ver.   Use app-level templates

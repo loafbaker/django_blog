@@ -51,7 +51,7 @@ def comment_thread(request, id):
 		context = {
 			'comment': comment,
 		}
-	return render(request, 'comment_thread.html', context)
+	return render(request, 'comments/comment_thread.html', context)
 
 @login_required()
 def comment_delete(request, id):
@@ -77,4 +77,4 @@ def comment_delete(request, id):
 	context = {
 		'comment': comment,
 	}
-	return render(request, 'confirm_delete.html', context)
+	return render(request, 'comments/confirm_delete.html', context)
