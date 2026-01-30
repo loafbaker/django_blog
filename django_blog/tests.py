@@ -1,4 +1,4 @@
-# Reference: http://getblimp.github.io/django-rest-framework-jwt/
+# Reference: https://django-rest-framework-simplejwt.readthedocs.io/
 
 import datetime
 import json

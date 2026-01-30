@@ -53,9 +53,9 @@ def create_comment_serializer(model_type='post', slug=None, parent_id=None, user
             elif model_type == 'comment':
                 try:
                     ## If allow multi-layer comment thread,
-                    # object = some_model.objects.get(id=parent_id)
+                    # object = some_model.objects.get(id=self.parent_id)
                     ##  otherwise,
-                    object = some_model.objects.all().get(id=parent_id)
+                    object = some_model.objects.all().get(id=self.parent_id)
                     data_valid = True
                 except:
                     raise serializers.ValidationError('This is not a valid parent id for the comment object.')

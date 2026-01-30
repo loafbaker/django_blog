@@ -30,7 +30,7 @@ def post_create(request):
 	}
 	return render(request, 'posts/post_form.html', context)
 
-def post_detail(request, slug=None): # retrive
+def post_detail(request, slug=None): # retrieve
 	instance = get_object_or_404(Post, slug=slug)
 	if not (request.user.is_staff or request.user.is_superuser):
 		if instance.draft or instance.publish > timezone.now():
