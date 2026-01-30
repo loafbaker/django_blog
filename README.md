@@ -59,6 +59,18 @@ Run web server
 
 Now you can access the web app and the backend administration page by visiting `http://localhost:8000/` and `http://localhost:8000/admin/`, respectively.
 
+# Run unit test
+
+If you want to run unit test before deploying the web app, ensure the package `requests` has been installed in your virtual environments.
+
+Run the test suite with
+
+    python manage.py test
+
+or
+
+    uv run manage.py test
+
 # Minor Versions
 
 Ver.1   [Install & Admin](../../tree/63967d94c2443d3665a435d4b1ad3448e8f59131)
